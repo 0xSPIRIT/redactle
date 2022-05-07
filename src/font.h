@@ -13,12 +13,12 @@ enum FontSize {
 struct Font {
     TTF_Font *small, *medium, *large;
     int char_w[FONTSIZE_COUNT],
-	char_h[FONTSIZE_COUNT];
+        char_h[FONTSIZE_COUNT];
 };
 
 struct Font *font_allocate(const char *fp);
 void font_deallocate(struct Font *font);
-void font_draw(struct Font *font, const char *text, int x, int y, int size, int *w, int *h);
+void font_draw(struct Font *font, const char *text, int x, int y, int size, SDL_Color col, int *width, int *height);
 void font_text_size(struct Font *font, int size, const char *text, int *w, int *h);
 
 #endif /* FONT_H_ */

@@ -15,8 +15,8 @@ long file_length(FILE *file) {
 char *readfile(char *filepath, size_t *o_length) {
     FILE *file = fopen(filepath, "r");
     if (!file) {
-	fprintf(stderr, "Error opening %s.\n", filepath);
-	exit(1);
+        fprintf(stderr, "Error opening %s.\n", filepath);
+        exit(1);
     }
 
     size_t length = file_length(file)+1;
@@ -30,4 +30,11 @@ char *readfile(char *filepath, size_t *o_length) {
     fclose(file);
     
     return buffer;
+}
+
+bool point_in_rect(int x, int y, SDL_Rect r) {
+    if (x < r.x || y < r.y || x > r.x+r.w || y > r.y+r.h) {
+        return false;
+    }
+    return true;
 }
